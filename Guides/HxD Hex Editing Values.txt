@@ -1,0 +1,24 @@
+-- Universal Values --
+
+(Assuming you followed Extraction and QuickBMS Guides correctly)
+
+Open any extracted bdg file: such as for example Character_Data from Titansaurus.bdg
+
+1) Hit Ctrl+F To open the Find menu.
+
+2) Open the Hex-values tab.
+
+Integers/Floats: 4 byte data that is after "01 16 00 00"
+(Example: The first 01 16 00 00 3f 80 00 00 in a Character_Data, 3f 80 is Character Speed: changing it to 01 16 00 00 3f 90 00 00 is similar to Speed Surge)
+
+01 16 00 00 is used for the following examples: Health Cells, Gravity, Knockback, Speed, Damage, AI functionality (Both Monster & Military).
+
+(01 16 00 00 is your best friend in modding Unleashed)
+---------------------------------------------------------
+String Values: Start with "02 16 00 00"
+
+I did not do much testing with these, but are usually left unchanged.
+---------------------------------------------------------
+??? (Unknown) Values: Start with 03 16 00 00
+
+Unsure what these do if at all, when changing them does not decide to crash. 

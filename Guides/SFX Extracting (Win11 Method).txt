@@ -1,0 +1,13 @@
+-- Extracting Audio (not music, Character sounds) --
+
+For windows 11 may need to run in command prompt. Commands for it included.
+
+1) Take the .UBER and .samp of chosen audio files. (Audio from GU and Revolution included)
+
+2) Drag the uber over uber-extract.py, Command prompt method: Open the sfx tools folder in terminal: and run "python uber-extract.py <charactername>.uber". You will now have an .sdir file as one of the extraction (it needs the samp in order to work).
+
+3) Drag the .sdir over wiimusyx-extract.py or run in terminal (same method): 
+   "python wiimusyx-extract.py <charactername>.sdir" all sound files will get extracted.
+
+! -- PDF from VGF2615 about SFX Modding is a separate guide -- !
+! -- This guide was just an update on how to do it through Windows 11 -- ~
