@@ -1,0 +1,45 @@
+!! install radtools! (From www.radgametools.com) !!
+
+Music:
+
+In Audacity exporting your music file as a 16-bit signed pcm WAV is the reccomended type. (48000hz)
+
+1) Open Rad Video Tools
+
+2) Bink the .wav file you created, name it whatever.
+
+3) Once the conversion is completed. Change the file name to the specific monster you'd like to chance. (examples below)
+
+4) Replace the file in DATA/files/video.
+
+Example of monster music file names:
+
+Alien_01_Gigan_Theme_Rev
+
+Earth_Defenders_04_Baragon
+
+Mecha_04_Jet_Jaguar
+
+!! GUOR and Final Wars Specific !!
+
+- Main Menu: Menu_Theme_Test_0000000001
+
+- Music Files for 90's and 1954
+
+- Music File for MG2
+
+
+-- Video File --
+
+!! File MUST be 480p !!
+
+Location is the same as the music!!
+
+Same steps as before, except your replacing files such as:
+
+Intro & Intro_fs (Replace both with your new intro)
+
+Main Menu (The small video on the right)
+
+
+!!! - With Rad Video Tools you can listen/watch any Bik file.

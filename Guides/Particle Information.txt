@@ -1,0 +1,143 @@
+Effect Definition File (.edf) Catalogue, v1
+
+This document is read best in Notepad++ using C language. Any comments left blank mean the option has an unknown fuction at this time.
+
+=======================================================
+
+As a foreword, EDF files are the text files that control how particle effects work. Chances are if its a beam or it glows, its an EDF.
+The light created by a particle on the environment is also a type of EDF.
+
+Random Notes:
+
+-All instances of "=KA?" are followed by a single number (decimal or integer)
+-All instances of "=KC?" are followed by three numbers
+-All instances of "=KG?" are followed by four numbers
+-All instances of "=KE?" are followed either by five or sometimes thirteen numbers
+-"=?" is a wildcard, having anywhere from one to four numbers, or a text string
+
+EDF files appear to follow this format:
+
+<Header Data>
+?{
+	<Data Block 1>
+?}
+?{
+	<Data Block 2>
+?}
+...
+?{
+	<Data Block n>
+?}
+<End of File>
+-----------------------------------------------------------------------------------------------
+
+Here is an example EDF pulled from MG2's Plasma Cannon particle (Mecha_plasma_cannon.edf):
+
+AAABAC									// Header, appears to always be AAABAC
+AD?1										// Unknown, so far is always set to 1
+AE=AL										// Unknown, usually set to AL. Rage pickup effects are set to AN, EDF bundles are set to AH, and light EDFs are set to AI
+?enum.fxPriority?=MP				// 'fxPriority' kind of explains itself, is always set to MP. What does MP stand for? ¯\_(ツ)_/¯
+DQ=?1										// Amount of data blocks contained in the file, hencforth dubbed "Datablock Quantity"
+?{												// Start of data block
+MG=MK									// 
+LY=HSHUHV							// Some kind of flag that can have multiple inputs, more notes below*
+LZ=?NormalizedEmAll				// Unknown, almost always set to "NormalizedEmAll"
+MA=IO										// 
+MB=?NormalizedPaAll				// Unknown, almost always set to "NormalizedPaAll"
+DT=KA?40								// Particle emission rate, presumably measured in particles created per second
+DU=KA?0									// 
+DV=KA?2									// Also deals with particle width? ////// Beam flicker? Multiplies the beam?
+DW=KA?2								// Also deals with particle width? /////// Beam flicker? Multiplies the beam?
+DX=KA?0									//
+DY=KA?750								// Particle beam speed, most beam attacks in the vanilla game use around ~1000
+DZ=KA?0									// Side to side particle coordinates, usually typed in the thousands or negative thousands as an integer.
+EA=KA?0									// Up and down particle coordinates.
+EB=KA?1									// Particle randomness?
+EC=KA?0									// Controls particle spread. Vertical.
+ED=KA?0									// Controls particle spread. Horizontal.
+EH=KA?.26								// Decimal from 0-1 that represents maximum range of a beam particle, as well as the range of the attack's hitbox. For
+EI=KA?.26								// 	---reference, a value of 1 is the max distance two characters can be from each other in Versus Mode, while 0.5 is half of the screen.
+EJ=KA?30								// Integers that control the particle's width. I'm not sure why there are two separate numbers, because the particle appears to use the
+EK=KA?30								// 	---largest of the two numbers for the width. For reference, Moguera's Eye Laser has a width of 7, and MG2's Plasma Cannon has a width of 30
+EO=?0 0 0								// 
+EP=?1 1									// 
+EQ=?1										// 
+EU=?0										// 
+EV=?0										// 
+EW=?000elec1				// Texture file used in effect, examples being 000basic, 000laser, 000smoke_6, 000elec1. Can also
+												// 	---alternate between multiple texture files with syntax of "EW=?000elec4 000elec2 000elec3 000elec1"
+												// 	---"JW" also seems to deal with textures too, as the rage powerup effect uses "JW=?000swoosh" rather than EW
+LW=?LI									// Sometimes differs from "LI" and "Lighten". Perhaps a rendering effect?
+LX=LI										// Same as above
+LO=KA?1									// RGB Red value, stored as decimal multiplicand of 255 standard
+LP=KA?0.9								// RGB Green value, stored as decimal multiplicand of 255 standard
+LQ=KA?0.2								// RGB Blue value, stored as decimal multiplicand of 255 standard
+LR=KC?2 1 0 -1						// 
+EZ=KA?1									// 
+FA=JH										// Unknown, usually set to "JH" but is sometimes set to "JJ"
+FB=JH										// Unknown, usually set to "JH" but is sometimes set to "JL"
+FG=?0.6									// 
+FH=?0.99								// 
+FD=?godzilla_sound|MECHAZILLA LASER LOOP	// Sound to emit when creating particle, syntax is "FD=?<Sound Bank>|<Sound Filename>"
+?int.multiple_render?=?1			// # of particles that can be rendered at once?
+?}												// End of data block
+
+				*"LY" seems to be a flag header-esque node that can control many types of particle behaviors. There are two types of "LY"s: ones that appear as a bunch
+				of random letters mixed together and ones that seem like real options.
+
+				Here are a few examples of the "random mixed together letters" ones:
+
+				LY=HPHSHUHVIIIH 					// ghidorah_lightning.edf
+				LY=HQHS								// gz2k_chargeup.edf
+				LY=HPHSHUHV						// atomicbreath_strong.edf
+				LY=HSHUHV							// Mecha2k_cannon.edf
+				LY=HPHUHVII							// Moguera_eye.edf
+
+				Here's an example of the "real options" type:
+
+				LY=?AutoStart UsesPercentStretchLength BreaksRelativityUponShutdown		// ghid_hurricane_fire.edf
+
+				It uses three separate flags to mark how the particle works.
+
+				AutoStart											// Pretty obvious what this means
+				UsesPercentStretchLength				// Not sure, but seems like it tells the particle to use a percentage number to determine how far the particle
+																		// 	---should stretch when used as a beam?
+				BreaksRelativityUponShutdown		// I assume this means that if the particle is going off and the character using the attack is knocked over or
+																		// 	---something like that, it means the particles that are already created won't "move with the character", so it
+																		// 	---"breaks relativity" to the source emitter
+
+				*end of "LY" notes*
+
+-----------------------------------------------------------------------------------------------
+
+Its possible to attach multiple EDF files together and call that bundled EDF to use every linked effect at the same time.
+
+For example, look at the impact effect for Kiryu's Absulote Zero Cannon (mgz2k_cannon_impact.edf):
+
+AAABAC														// Header, appears to always be AAABAC
+AD?1															// Unknown, so far is always set to 1
+AE=AH															// Unknown, usually set to AL. Rage pickup effects are set to AN, EDF bundles are set to AH, and light EDFs are set to AI
+BC=?3															// Integer for amount of EDF files to link together, in this case 3 separate files
+BD=?000Mecha2k_cannon_hit.edf		// This is where the separate EDF files are linked. The list entries start at BD followed by
+BE=?000Mecha2k_impact_light.edf		// 	---the EDF file to attach, then BE followed by the second file, and so on. This can only go to
+BF=?000screenflash.edf						// 	---BG, so a maximum of four separate EDF files can be linked.
+
+Also of note for the above EDF, there is no data block and it consists only of header data.
+
+-----------------------------------------------------------------------------------------------
+
+EDFs can also be used to create light sources, for example the blue light from Kiryu's Absolute Zero Cannon (mecha2k_impact_light.edf):
+
+AAABAC							// Header, appears to always be AAABAC
+AD?1								// Unknown, so far is always set to 1
+AE=AI								// Unknown, usually set to AL. Rage pickup effects are set to AN, EDF bundles are set to AH, and light EDFs are set to AI
+AV=?4								// 
+BI=KC?1 1 -1					// Unknown, can either be one or three numbers
+BJ=KA?.4						// RGB Red value, stored as decimal multiplicand of 255 standard
+BK=KA?.8						// RGB Green value, stored as decimal multiplicand of 255 standard
+BL=KA?1							// RGB Blue value, stored as decimal multiplicand of 255 standard
+BM=KC?1 327 -327			// Values for the light's maximum range. Can either be one or three numbers. If using three numbers, then
+										// 	---use syntax "1, <range>, -<range>" (third number is negative). For reference, the range of the yellow light
+										// 	---for Kiryu's Plasma Sword is 157.
+										
+Just like EDF bundles, this type of EDF only has header data and no data block.

@@ -1,0 +1,8 @@
+Requires python & pillow module: with python "pip install Pillow" in terminal. (may need to reopen editor)
+
+Used on Visual Studio Code, doesn't like working through Command Prompt. Should be able to run on Pycharm and etc.
+
+Right click your input and output folder, copy path and paste them in the code for the values input_folder and output_folder. keep them between the ''
+
+Once that is done put the pngs in the input folder, run the file, and mip_maps will be created up to
+mip_3, each mip is 50% smaller.

@@ -1,0 +1,78 @@
+# Pipeworks Bundle Files
+# Godzilla: Unleashed, Godzilla Destroy All Monsters Melee, Rampage: Total Destruction (Nintendo Consoles only)
+# Sloppily written by DylanRocket
+# script for QuickBMS http://quickbms.aluigi.org
+
+endian big
+idstring "Pipeworks"
+goto 0x34 # Get offset for string table
+get STRINGOFF long
+goto 0x62 # Get number of files in the bundle
+get FILECOUNT short
+goto 0x64 # Strings seem to be assigned here...
+get STRINGASS long
+goto 0x68 # Offset to add to the offsets found in the TOC
+get ADDOFF long
+goto 0x70 # Get offset for the graphic block
+get GRAPHICBLOCK long
+goto 0x78 # Start of table of contents
+# set NAME string ""
+
+for i = 0 < FILECOUNT
+
+	# Save original position, then set up the next position
+
+	savepos MYOFF
+	Math MYOFF + 0x12
+
+	# Actual file extraction - A.K.A. the important stuff
+
+	get FILENUM short
+	get OFFSET long
+	get SIZE long
+	get GRAPHICOFFSET long
+	get GRAPHICSIZE long
+	Math OFFSET + ADDOFF
+
+	# Handle file names... there's probably a better way to do it, but hell if I know what that is
+
+	goto STRINGASS
+	set FILENUM2 FILENUM
+	set STRINGASS2 STRINGASS
+	Math FILENUM2 * 0x10
+	Math FILENUM2 + 0x4
+	Math STRINGASS2 + FILENUM2
+	goto STRINGASS2
+	get NAMEASS long
+	goto STRINGOFF
+	set TEMPSTR STRINGOFF
+	set TEMPSTR2 TEMPSTR
+	Math TEMPSTR + 0x4
+	set ADDASS 0x4
+	Math ADDASS * NAMEASS
+	Math ADDASS + TEMPSTR
+	goto ADDASS
+	endian little
+	get STROFF long
+	endian big
+	Math TEMPSTR2 + STROFF
+	goto TEMPSTR2
+	get NAME string
+	
+	Log NAME OFFSET SIZE
+
+	# Now, time to extract the graphic files
+
+	Math GRAPHICOFFSET + GRAPHICBLOCK
+
+	string NAME += "_graphic"
+
+	if GRAPHICSIZE <> 0;
+		Log NAME GRAPHICOFFSET GRAPHICSIZE
+	endif;
+
+	# Time to reset variables and locations
+
+	goto MYOFF
+
+next i

@@ -1,0 +1,32 @@
+-- Exporting (Guessing you exported the disc already) --
+
+1) Open quickbms.exe (may need administrator for win 11)
+
+2) First window asks for script, select the Pipeworks Bundle Files v3 file provided in the same folder.
+
+3) Asks for input. It wants a bdg file thats was extracted, choose the one you want.
+
+4) Asks for output. Where do you want the files to be extracted?
+
+5) Once the files are extracted (press enter when it stops), you can have access to:
+
+(examples) AI from common.bdg, Character Data from the <Kaiju>.bdg, and Stage files.
+
+-- Reimporting into a BDG --
+
+1) With BDG files extracted, DELETE ANY YOU DO NOT PLAN TO EDIT!
+
+2) Once you edited the files (through HxD probably) open reimport from the QuickBMS Folder.
+
+3) Pick the Pipeworks Bundle Files v3 Script in the same folder like usual for the bms script.
+
+4) Input this time wants the BDG you extracted the files from.
+(For example ill say MonsterAI and common.bdg)
+
+5) Output for example will be the edited MonsterAI file.
+
+6) With the script being the pipeworks folder, input common.bdg, and output as Monster AI: The File will be reimported into common.bdg (example)!
+
+Notes: Keep the filesize the same. When hex editing the last byte cannot move from where it is located. But you may relocate values elsewhere here is an example:
+
+If there is a value like 0.000010000 or something, you may delete a zero and place a new byte elsewhere. It will be the same size but will allow you to do stuff like setting a particle's color to 0.1 instead of 1 by doing "2E 31" instead of just 31.

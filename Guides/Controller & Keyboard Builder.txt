@@ -1,0 +1,24 @@
+-- Controller Installation --
+
+1) Open Dolphin, go to File on top left and "open user directory"
+
+2) Move the Config folder into this directory.
+
+3) Open controller in Dolphin, config Wiimote 1.
+
+4) Open the profiles drop down on top right and all Profiles from GU Overhaul Revolution: Final Wars should be present.
+
+5) Select your chosen controller and hit Load
+
+
+-- Keyboard Builder (Credit: Kanekiri) --
+
+1) Open the .exe file
+
+2) Set all the keys you want.
+
+3) Create the file and follow step 1 of the guide above.
+
+4) Place that new control profile inside Config/Profiles/Wiimote.
+
+5) It will appear when selecting a profile in wiimote configuration (Inside Dolphin's controller tab.)
