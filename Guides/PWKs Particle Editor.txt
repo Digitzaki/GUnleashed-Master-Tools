@@ -1,0 +1,36 @@
+Pipeworks Particle Editor
+Developed by: Akira Ryuzaki (Digitzaki)
+
+Description:
+
+PWKs Particle Editor is an application that allows you to adjust color properties for your particle/beam effects. With sliders outputting instant feedback, you can easily create the perfect colors for your project.
+
+Features:
+
+Color Sliders: Pipeworks Particle Editor provides three sliders for Red, Green, and Blue color channels, allowing you to adjust color values with precision up to two decimal places.
+
+Hex Color Output: These sliders instantly generate the correct hex editor values, making it easy to copy them into your project for color customization. An Unsigned Hex value output is also included.
+
+Red: LO=KA? (e.g. 2E 32 (.2))
+Green: LP=KA? (e.g. 2E 33 38 (.38))
+Blue: LQ=KA? (e.g. 2E 36 32 (.62))
+Unsigned Hex Value: Color Hex (e.g. 40 E0 D0 (Turquoise))
+
+Alpha Slider: Pipeworks Particle Editor includes an Alpha slider (LR=KA?) that lets you control more transparency of your colors. The slider ranges from 1 to 5. (3 is Reccomended)
+
+Transparency Control: The closer the color values are to 0, the more transparent the color becomes, allowing you to achieve the desired level of transparency for your particle effects.
+(Intended as this is what particles did with lower color values in Unleashed)
+
+How to Use:
+
+1) Launch the Pipeworks Particle Editor application.
+2) Use the Red, Green, and Blue sliders to adjust the color values.
+3) Observe the corresponding hexadecimal values for Red, Green, and Blue.
+4) Use the Alpha slider to control the transparency of your colors further.
+5) Experiment with the sliders to achieve the desired color and transparency for your particle effects.
+6) Copy the generated hex values and apply them in your exported particle file.
+
+Disclaimers:
+
+Alpha slider multiplies the Transparency by 25%, the real amount LR=KA? controls is unknown.
+Results may slightly vary.
