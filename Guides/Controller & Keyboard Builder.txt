@@ -10,6 +10,9 @@
 
 5) Select your chosen controller and hit Load
 
+12/20/25: Config folder includes KB, XB1, XBX, 360 + Steam Deck, PS4, PS5, and NS
+
+XB1 is a preview of GUFW 2.0
 
 -- Keyboard Builder (Credit: Kanekiri) --
 

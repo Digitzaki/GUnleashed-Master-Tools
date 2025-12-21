@@ -33,6 +33,6 @@
 
 3) Right click and open Terminal
 
-4) type in "wit copy <extracted folder name goes here> <name goes here>.iso". if you did "wit copy <foldername> godilla.iso" it will create a runnable GU iso under "godilla.iso".
+4) type in "wit copy <extracted folder name goes here> <name goes here>.iso". if you did "wit copy <foldername> godilla.iso" it will create a new GU iso under "godilla.iso".
 
 5) If you want this iso compressed have it show up in dolphin, Right click it, and convert to an RVZ.
