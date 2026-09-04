@@ -10,29 +10,15 @@
 
 5) You now have all GU files extracted inside a folder!
 
---- Extraction WIT Method ---
+Bonus) In Dolphin -> Config -> Paths if you enable subfolders and put the extracted disc in your game directory,
+You can play the extracted game! (Size will display 0.00 on the Right of Dolphin)
 
-
-1) Download Wit (Wiimms ISO Tool) at: https://wit.wiimm.de
-
-2) Once installed find your Unleashed folder location
-
-3) Right click where the disc is located (not the actual disc folder) and click "Open Terminal". If not you can copy the directory file path, open command prompt and type "cd <paste file path here>".
-
-3) Type in "wit extract <filename goes here>.iso"
-
-4) Wit will extract the iso to a Folder for you.
 
 --- Reimport/Compression of Extracted Disc ---
 
-!! If you just want to test your edited files, hit Open inside dolphin, find your extracted Unleashed and open Game/Sys/main.dol. The game will run. !!
+1) Right click your extracted disc and "Convert File"
 
-1) WIT is reccomended as its by far the easiest way I've found.
+2) Set to ISO or RVZ, ISO lets you use the ISO Tool to change the Game ID to differentiate from vanilla.
 
-2) With WIT installed open the directory where your extracted disc is again (not the disc folder itself)
-
-3) Right click and open Terminal
-
-4) type in "wit copy <extracted folder name goes here> <name goes here>.iso". if you did "wit copy <foldername> godilla.iso" it will create a new GU iso under "godilla.iso".
-
-5) If you want this iso compressed have it show up in dolphin, Right click it, and convert to an RVZ.
+3) If you did ISO first then used the tool, right click the iso and Convert File to RVZ format. This works just like iso but compressed.
+     - And will give you an updated Game File with the new Game ID

@@ -1,0 +1,18 @@
+<wiidisc version="1">
+    <id game="RGZE"/>
+
+    <options>
+        <section name="Testing">
+            <option name="Custom Files" default="0">
+                <choice name="Enabled">
+                    <patch id="GZME"/>
+                </choice>
+            </option>
+        </section>
+    </options>
+
+	<patch id="GZME">
+		<folder external="/GU-Custom-Models" recursive="true" resize="true" />
+	</patch>
+
+</wiidisc>

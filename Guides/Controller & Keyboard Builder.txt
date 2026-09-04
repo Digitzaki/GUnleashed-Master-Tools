@@ -10,11 +10,10 @@
 
 5) Select your chosen controller and hit Load
 
-12/20/25: Config folder includes KB, XB1, XBX, 360 + Steam Deck, PS4, PS5, and NS
+9/3/26: This includes the Profiles for GUFW 1.6 [Kingdom Come] The Keyboard Creator functions similarly but is missing the adjustments.
 
-XB1 is a preview of GUFW 2.0
 
--- Keyboard Builder (Credit: Kanekiri) --
+-- Keyboard Builder (Pre 1.6) --
 
 1) Open the .exe file
 

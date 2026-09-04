@@ -1,0 +1,18 @@
+<wiidisc version="1">
+    <id game="GZDE"/>
+
+    <options>
+        <section name="Testing">
+            <option name="Custom Files" default="0">
+                <choice name="Enabled">
+                    <patch id="GZDM"/>
+                </choice>
+            </option>
+        </section>
+    </options>
+
+	<patch id="GZDM">
+		<folder external="/DAMM-Custom-Models" recursive="true" resize="true" />
+	</patch>
+
+</wiidisc>

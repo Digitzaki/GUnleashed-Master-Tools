@@ -19,4 +19,6 @@ String Values: Start with "02 16 00 00"
 
 I did not do much testing with these, but are usually left unchanged.
 ---------------------------------------------------------
-Relative Offset Values: Start with 03 16 00 00
+Relative Offset Values: Start with 03 16 00 00 (This typically points to what the following bytes are used for)
+
+Note: GZBuildr decodes a lot of the data files, so this could potentially be ignored for less complex edits

@@ -1,0 +1,217 @@
+Godzilla Blender Converter
+
+Godzilla Blender Converter exports Pipeworks Godzilla model files to FBX, lets you edit them in Blender, then imports the edited FBX back into a copied game file.
+
+Your original file is not overwritten.
+
+Supported files
+===============
+
+Export input:
+
+- *_Shapes.BDG
+- .CMG
+
+Import input:
+
+- Edited .FBX
+- Original *_Shapes.BDG / Original .CMG
+
+BDG export is model-only. It exports the model and textures, not playable animation data.
+
+Basic workflow
+==============
+
+1. Export the original game model to FBX.
+2. Edit the FBX in Blender.
+3. Import the edited FBX back into a copied BDG or CMG.
+4. Put the copied output file into your mod / extracted game folder.
+5. Test it in-game.
+
+
+Export to Blender
+=================
+
+1. Open Godzilla Blender Converter.
+
+2. Click the Export tab.
+
+3. Click Browse beside Input File.
+
+4. Select the model you want to export.
+
+   For Wii models:
+   - Select the character's *_Shapes.BDG file.
+
+   For GameCube models:
+   - Select the character's .CMG file.
+
+5. Click Browse beside Output folder.
+
+6. Choose where the exported project should be created.
+
+7. Click Export to FBX.
+
+The converter creates a character folder containing the FBX, textures, and import data.
+
+
+Edit in Blender
+===============
+
+1. Open the exported FBX in Blender.
+
+2. Edit the model.
+
+3. Save or export your edited model as FBX.
+
+4. Keep the exported project folder intact.
+
+Important:
+
+- For BDG exports, do not delete import_log.json.
+- Do not move a BDG FBX into a totally separate project unless you keep import_log.json with it.
+- CMG imports do not need import_log.json; they read the needed structure from the original CMG or CMG zip.
+- The new FBX can be named whatever, it doesn't need to replace the export.
+
+
+Import back
+===========
+
+1. Open Godzilla Blender Converter.
+
+2. Click the Import tab.
+
+3. Click Browse beside Edited FBX.
+
+4. Select your edited FBX.
+
+5. Click Browse beside Original file.
+
+6. Select the original file that the FBX came from.
+
+   For Wii:
+   - Select the original *_Shapes.BDG file.
+
+   For GameCube:
+   - Select the original .CMG file, or the original .ZIP if that CMG was stored in a zip.
+
+7. Click Browse beside Output folder.
+
+8. Choose where the converted copy should be written.
+
+9. Click Import from FBX.
+
+The converter writes a new copied file in the output folder. Use that new file for your mod.
+
+
+GameCube / DAMM notes
+=====================
+
+GameCube models use CMG files.
+
+Some DAMM CMGs are loose files, and some are stored inside zip files.
+
+- _0.cmg, _1.cmg, and _2.cmg are packed back into zip files.
+- _3.cmg stays as a loose CMG file.
+
+
+Riivolution folder notes
+========================
+
+Use the output file from the converter, then place it into the matching Riivolution mod folder for the game/mod you are using.
+
+Common custom folders:
+
+- Revo = Load/Gunleashed/Custom
+- GUFW = Load/FinalWars_Settings/Custom
+- DAMD = Load/Dominaton_Settings/Custom
+
+Replace the matching BDG, CMG, or zip file with the converted copy.
+
+Always keep a backup of the original file before replacing anything.
+
+
+Extracting a Wii / GameCube game
+================================
+
+If you want to edit files directly from an extracted game, use Dolphin to extract the disc first.
+
+1. Open Dolphin.
+
+2. Right click the game.
+
+3. Click Properties.
+
+4. Go to the Filesystem tab.
+
+5. Right click the disc/root entry.
+
+6. Click Extract Entire Disc.
+
+7. Choose where to extract it.
+
+Recommended:
+
+- Extract it into the same folder where you keep your Dolphin games/ROMs.
+
+To make the extracted game playable from Dolphin:
+
+1. Open Dolphin Config.
+
+2. Go to Paths.
+
+3. Enable Search Subfolders.
+
+4. Make sure your games/ROMs folder is listed.
+
+After that, Dolphin can find and launch the extracted game folder like a normal game.
+
+You can then replace files inside the extracted disc folder, launch the game, test, and keep editing.
+
+
+Export folder contents
+======================
+
+The exported character folder usually contains:
+
+- FBX model
+- textures folder
+- import_log.json for BDG exports
+
+For BDG, import_log.json is required for import. It maps the FBX back to the original BDG streams, including vertex data and added topology.
+
+For CMG, import_log.json is not required. Select the original CMG or CMG zip during import.
+
+
+Editing tips
+============
+
+- Same-topology edits are safest.
+- Moving existing model parts is safer than rebuilding the whole model.
+- Added parts can work, but the original game format still has limits.
+- If textures look wrong after adding parts, assign the new parts to a known material or use custom texture work.
+- Test small edits first.
+- Always test the imported file in-game.
+
+
+Troubleshooting
+===============
+
+If export fails:
+
+- Make sure you selected a supported BDG or CMG file.
+- For BDG models, use the *_Shapes.BDG file.
+
+If import fails:
+
+- Make sure the edited FBX came from this converter.
+- For BDG, make sure import_log.json is still in the exported project folder.
+- Make sure you selected the correct original BDG, CMG, or zip.
+- Try exporting fresh from the original file and applying a smaller edit.
+
+If the model looks wrong in-game:
+
+- Recheck the original file you imported into.
+- Test a smaller edit.
+- Re-export from the original file and try again.
+- Make sure the replacement file is in the correct Riivolution folder.

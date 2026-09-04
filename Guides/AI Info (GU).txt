@@ -1,1 +1,6 @@
 WIP Placeholder File
+
+
+If you open CommonGUI in GZBuildr and click the hyperlinked MonsterAI / MilitaryAI
+
+You can edit the values and ignore hex editing entirely! They are named for what the values are.
